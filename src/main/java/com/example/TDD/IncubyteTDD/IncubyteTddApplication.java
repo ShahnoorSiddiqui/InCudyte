@@ -1,6 +1,5 @@
 package com.example.TDD.IncubyteTDD;
 
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
@@ -13,15 +12,23 @@ public class IncubyteTddApplication {
 	public int Add(String numbers)
 	{
 	  int sum=0;
+	  String Delimiter=",";
+	  String[] number = null;
 	  
 	  if(numbers.isBlank())
 		{
 			return sum;
 		}
 	  
-	  String delimiter=",|\n";
-	  String[] number =numbers.split(delimiter);
-	  
+	  if(numbers.startsWith("//"))
+		{
+              if(numbers.matches("//(.*)\n(.*)")){
+			  Delimiter = Character.toString(numbers.charAt(2));
+			  numbers = numbers.substring(4);
+			}
+		}
+ 
+	  number=splitNumbers(numbers, Delimiter + "|\n");
 	  for(String strnumber:number)
 		{
 
@@ -29,6 +36,11 @@ public class IncubyteTddApplication {
 		}
 	  
 	  return sum;
+	}
+
+	private String[] splitNumbers(String numbers, String Delimiter) {
+		
+		return numbers.split(Delimiter);
 	}
 
 }

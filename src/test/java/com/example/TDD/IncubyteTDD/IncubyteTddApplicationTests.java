@@ -39,4 +39,15 @@ class IncubyteTddApplicationTests {
 		int output = strCalc.Add("1\n2,3");
 		assertEquals(6, output);
 	}
+	
+	@Test
+	void TestCase4()
+	{
+		IncubyteTddApplication strCalc=new IncubyteTddApplication();
+		int output = strCalc.Add("//;\n1;2");
+		assertEquals(3, output);
+	}
+	
+
+	
 }
