@@ -32,4 +32,11 @@ class IncubyteTddApplicationTests {
 		assertEquals(55, output);
 	}
 
+	@Test
+	void TestCase3()
+	{
+		IncubyteTddApplication strCalc=new IncubyteTddApplication();
+		int output = strCalc.Add("1\n2,3");
+		assertEquals(6, output);
+	}
 }

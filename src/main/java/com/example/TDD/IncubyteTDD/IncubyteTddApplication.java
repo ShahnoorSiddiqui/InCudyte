@@ -19,7 +19,7 @@ public class IncubyteTddApplication {
 			return sum;
 		}
 	  
-	  String delimiter=",";
+	  String delimiter=",|\n";
 	  String[] number =numbers.split(delimiter);
 	  
 	  for(String strnumber:number)
