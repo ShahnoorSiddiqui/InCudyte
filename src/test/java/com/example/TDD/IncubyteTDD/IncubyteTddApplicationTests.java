@@ -23,5 +23,13 @@ class IncubyteTddApplicationTests {
 		int output = strCalc.Add("1,2");
 		assertEquals(3, output);
 	}
+	
+	@Test
+	void TestCase2()
+	{
+		IncubyteTddApplication strCalc=new IncubyteTddApplication();
+		int output = strCalc.Add("1,2,3,4,5,6,7,8,9,10");
+		assertEquals(55, output);
+	}
 
 }
