@@ -34,6 +34,9 @@ public class IncubyteTddApplication {
 		  if(Integer.parseInt(strnumber) < 0)
 			  displayException(number);
 		  
+		  if(Integer.parseInt(strnumber) > 1000)
+			  continue;
+		  
 			sum=sum+Integer.parseInt(strnumber);
 		}
 	  

@@ -56,7 +56,6 @@ class IncubyteTddApplicationTests {
     		strCalc.Add("-1,2");
 		}
 		catch (IllegalArgumentException e){
-			System.out.println(e.getMessage());
 			assertEquals(e.getMessage(), "Negatives not allowed: -1");
 		}
 
@@ -64,9 +63,17 @@ class IncubyteTddApplicationTests {
 			strCalc.Add("2,-4,3,-5");
 		}
 		catch (IllegalArgumentException e){
-			System.out.println(e.getMessage());
 			assertEquals(e.getMessage(), "Negatives not allowed: -4,-5");
 		}
     }
+	
+	@Test
+	void TestCase6()
+	{
+		IncubyteTddApplication strCalc=new IncubyteTddApplication();
+		int output = strCalc.Add("2,1002");
+		assertEquals(2, output);
+	}
+	
 	
 }
