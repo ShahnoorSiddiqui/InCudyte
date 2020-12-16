@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class IncubyteTddApplication {
 
 	public static void main(String[] args) {
-		
+		//Add("-1,2");
 	}
 	
 	public int Add(String numbers)
@@ -31,11 +31,29 @@ public class IncubyteTddApplication {
 	  number=splitNumbers(numbers, Delimiter + "|\n");
 	  for(String strnumber:number)
 		{
-
+		  if(Integer.parseInt(strnumber) < 0)
+			  displayException(number);
+		  
 			sum=sum+Integer.parseInt(strnumber);
 		}
 	  
 	  return sum;
+	}
+
+	private void displayException(String[] number) {
+		String display="";
+		 for(String strnumber:number)
+		 {
+			 if(Integer.parseInt(strnumber) <0)
+			 {
+				 if(display.equals(""))
+					 display=strnumber;
+				 else
+			         display=display+","+strnumber;
+			 }
+		 }
+		 throw new IllegalArgumentException("Negatives not allowed: " + display);
+		
 	}
 
 	private String[] splitNumbers(String numbers, String Delimiter) {
